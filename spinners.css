@@ -1,0 +1,151 @@
+.spinner {
+    position: relative;
+    margin: 1em;
+  }
+.spinner:before {
+    content: '';
+    position: absolute;
+  }
+.spinner:after {
+    content: '';
+    position: absolute;
+  }
+
+.spinner.circle {
+    animation: spin360 1s linear infinite;
+    border: 5px solid black;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-color: currentColor currentColor currentColor transparent;
+    border-radius: 100%;
+}
+.spinner.circle:before {
+    height: 1px;
+    width: 1px;
+    left: -2px;
+    top: -5px;
+    border-style: solid;
+    border-color: transparent transparent black black;
+    border-width: 7px 7px 5px 5px;
+
+}
+
+@keyframes spin360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.spinner.dots {
+    animation: switchSides 2s ease infinite;
+    width: 3px;
+    height: 3px;
+    color: black;
+    background-color: black;
+    box-shadow:
+        10px 0 red,
+        -10px 0 blue;
+    border-radius: 100%; 
+}
+
+@keyframes switchSides {
+    0% { box-shadow:
+            10px 0 red,
+            -10px 0 blue;
+        }
+    50% {
+        box-shadow:
+        -10px 0 red,
+        10px 0 blue;
+    }
+    100% { box-shadow:
+        10px 0 red,
+        -10px 0 blue;
+    }
+}
+
+.spinner.bars {
+    animation: bounce1 1s ease-in-out infinite;
+    height: 3px;
+    width: 5px;
+    bottom: -1em;
+    background-color: black;
+    transform-origin: left;
+    transform: rotate(-90deg);
+}
+.spinner.bars:before {
+    animation: bounce1 1s ease-in-out .2s infinite;
+    height: 3px;
+    width: 5px;
+    background-color: red;
+    top: 5px;
+    transform-origin: left;
+
+}
+.spinner.bars:after {
+    animation: bounce1 1s ease-in-out .4s infinite;
+    height: 3px;
+    width: 5px;
+    background-color: blue;
+    top: 10px;
+}
+ @keyframes bounce1 {
+     0% { width: 5px }
+     5% { width: 5px }
+     50% { width: 20px  }
+     95% { width: 5px }
+ }
+
+ .spinner.pacman {
+     width: 10px;
+     height: 10px;
+     border-radius: 100%;
+
+ }
+
+ .spinner.beaker {
+     width: 5px;
+     height: 17px;
+     background-color: black;
+     border-radius: 5px;
+ }
+
+ .spinner.beaker:before {
+     position: absolute;
+     width: 10px;
+     height: 10px;
+     left: -3.1px;
+     bottom: -3px;
+     border-radius: 100% 40% 30%;
+     transform: rotate(225deg);
+     transform-origin: center;
+     background-color: black;
+     border: solid black;
+ }
+
+ .spinner.beaker:after {
+     animation: bubble 2.5s linear infinite;
+     position: absolute;
+     border-radius: 100%;
+     background-color: white;
+     height: 3px;
+     width: 3px;
+     right: 1px;
+     top: 1px;
+ }
+
+ @keyframes bubble {
+     0% { box-shadow: 0;}
+     30% { box-shadow: -1.5px -4.5px blue;}
+     60% { box-shadow: 
+            -1.5px -4.5px blue,
+            0.5px -7.5px blue;}
+     90% {box-shadow: 
+        -1.5px -4.5px blue,
+        0.5px -7.5px blue,
+        0 -12px blue;}
+     100% {box-shadow: 
+        -1.5px -4.5px white,
+        0.5px -7.5px white,
+        0 -12px white;}
+ }
